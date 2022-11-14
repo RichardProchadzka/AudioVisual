@@ -1,0 +1,184 @@
+body {
+    background-color: #F0A500;
+    height: 100vh;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+}
+
+h1 {
+    color: #000000;
+}
+
+iframe {
+    background-color: #F0A500;
+    border: 2px solid #000000;
+    border-color: #000000;
+    border-radius: 15px;
+}
+
+iframe:hover {
+    background-color: #F0A500;
+    border: 2px solid #000000;
+    border-color: #000000;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+}
+
+.center-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 10vh;
+}
+
+input[type=text],
+select {
+    width: 75%;
+    padding: 16px 24px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #11191f;
+    background-color: #F0A500;
+}
+
+input:focus {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    outline: 0;
+}
+
+input:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    border-radius: 15px;
+}
+
+::placeholder {
+    color: #000000;
+}
+
+input::file-selector-button {
+    font-weight: bold;
+    width: 50%;
+    padding: 16px 24px;
+    display: inline-block;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #11191f;
+    background-color: #F0A500;
+}
+
+input::file-selector-button:hover {
+    color: #F0A500;
+    background-color: #000000;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.float-container {
+    display: flex;
+}
+
+.first-box {
+    border: 0px;
+    padding: 20px;
+}
+
+.second-box {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 0px;
+}
+
+.btn {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
+
+.btn:disabled {
+    pointer-events: none;
+}
+
+.btn:hover {
+    color: #F0A500;
+    background-color: #000000;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+a {
+    color: #F0A500;
+}
+
+.btn-coffee {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-weight: 600;
+    line-height: normal;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+    margin-bottom: 15px;
+    margin-left: -20%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 40%;
+    min-width: 40%;
+}
+
+.btn-coffee:hover {
+    color: #F0A500;
+    background-color: #000000;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.btn-coffee:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
