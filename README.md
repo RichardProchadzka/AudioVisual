@@ -21,9 +21,19 @@ If you find something that can improve this project feel free to help me improve
 - The page is refreshing every 60s.
 - Youtube-dl can throw error on download even if it is good link, so you can find every failed link in audiovisual.log
 - Youtube-dl does not support shorts.
-- If you do mistake that you add invalid link or so, just leave it that way, it will handle it.
+- If you do mistake that you add invalid link or so, just leave it that way, youtube-dl will handle it.
+- Managing of processed files should be done via sftp, ftp, smb or accessing directly from OS files manager, just to have quicker download of the file.
+- If your PC is slow for conversion of video, try to lovering preset following this graf.
+For example, in ffmpeg.sh change value medium to veryfast.
 
+![encoding-time](https://user-images.githubusercontent.com/97609737/202441027-711330ee-50fd-4ac4-bc79-718609024a69.png)
 
+Source: https://trac.ffmpeg.org
 
 ## Issues
-I tried to force not to cache the page but it seems that is not working properly so you need to refresh iframes or clear the cache from browser.
+I tried to force not to cache the page but it seems that it is not working properly so you need to refresh iframes or clear the cache from browser.
+Persons that have access to this tool may see your Telegram Token!
+Granted root permissions to www-data user.
+
+# How to deploy
+
