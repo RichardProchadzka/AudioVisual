@@ -7,8 +7,12 @@ fi
 #install prerequisites
 apt update
 apt install rename curl jq youtube-dl nginx php8.1-fpm -y
+echo ""
+echo ""
 systemctl is-active --quiet php8.1-fpm && echo "php8.1-fpm is running"
 systemctl is-active --quiet nginx && echo "Nginx is running"
+echo ""
+echo ""
 #configure nginx server to share website on port 8081
 echo "" >> /etc/nginx/sites-available/default
 echo "server {" >> /etc/nginx/sites-available/default
@@ -23,16 +27,23 @@ echo "    include snippets/fastcgi-php.conf;" >> /etc/nginx/sites-available/defa
 echo "    fastcgi_pass unix:/run/php/php8.1-fpm.sock;" >> /etc/nginx/sites-available/default
 echo "  }" >> /etc/nginx/sites-available/default
 echo "}" >> /etc/nginx/sites-available/default
+echo ""
+echo ""
 #configure nginx to allow posting larger file
 echo "Please add client_max_body_size 10G; inside http{} in /etc/nginx/nginx.conf"
 sleep 10s
 sudo nano /etc/nginx/nginx.conf
+echo ""
+echo ""
 #configure all php.ini files to allow proccess large files
 echo "Please edit post_max_size = 0 and upload_max_filesize = 10G in /etc/php/8.1/fpm/php.ini"
 sleep 10s
 sudo nano /etc/php/8.1/fpm/php.ini
+echo ""
 cp -r audiovisual /var/www/html/
 chmod -R 777 /var/www/html
+echo ""
+echo ""
 systemctl restart nginx
 systemctl restart php8.1-fpm
 #configure permissions
