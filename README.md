@@ -36,4 +36,14 @@ Persons that have access to this tool may see your Telegram Token!
 Granted root permissions to www-data user.
 
 # How to deploy
-
+1. Clone repository to your enviroment.
+2. ```cd AudioVisual```
+3. Run build script with ```sudo bash build.sh```
+4. Follow through steps.
+5. Add ```client_max_body_size 10G;``` inside nginx.conf. Than press ctrl+x to close and type y to save.
+> ![image](https://user-images.githubusercontent.com/97609737/202452544-c5291b06-53c6-4434-be8d-0fd8ae8bc7c1.png)
+6. Than in php.ini find with ctrl+w these parameters and change values.
+```post_max_size = 0``` and ```upload_max_filesize = 10G```
+![image](https://user-images.githubusercontent.com/97609737/202452923-cb13926a-302d-4394-8354-ebb73db9e43b.png)
+![image](https://user-images.githubusercontent.com/97609737/202453084-a66b43b1-e2e2-4b05-86d8-c6e0b2374dd4.png)
+7. Carefully read the warning message. It is safe to deploy if you will not share nginx or php to the world.
