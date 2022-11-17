@@ -47,3 +47,5 @@ Granted root permissions to www-data user.
 ![image](https://user-images.githubusercontent.com/97609737/202452923-cb13926a-302d-4394-8354-ebb73db9e43b.png)
 ![image](https://user-images.githubusercontent.com/97609737/202453084-a66b43b1-e2e2-4b05-86d8-c6e0b2374dd4.png)
 7. Carefully read the warning message. It is safe to deploy if you will not share nginx or php to the world.
+![image](https://user-images.githubusercontent.com/97609737/202459860-2d9269c4-4b28-4c4d-bc5e-0a7510edfd40.png)
+8. Build should be done. Now if everything went good try to access GUI -> ```http://<IP address of machine>:8081```
