@@ -41,7 +41,9 @@ sleep 10s
 sudo nano /etc/php/7.4/fpm/php.ini
 echo ""
 cp -r audiovisual /var/www/html/
-chmod -R 777 /var/www/html
+mkdir /var/www/html/audiovisual/Downloads
+mkdir /var/www/html/audiovisual/Convert
+chmod -R 777 /var/www/html/audiovisual/
 echo ""
 echo ""
 systemctl restart nginx
