@@ -6,7 +6,7 @@ exit
 fi
 #install prerequisites
 apt update
-apt install rename curl jq youtube-dl nginx php-fpm -y
+apt install rename curl jq youtube-dl nginx php7.4-fpm -y
 echo ""
 echo ""
 systemctl is-active --quiet php7.4-fpm && echo "php7.4-fpm is running"
