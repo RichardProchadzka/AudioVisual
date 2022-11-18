@@ -8,7 +8,7 @@ telegram_chat=$(jq -r '.[0.].telegram_chat' config.json)
 timeStamp=$(date '+%Y-%m-%d %H:%M:%S')
 echo $timeStamp >> audiovisual.txt
 echo "Converting $filename to $name.$format" >> audiovisual.txt
-if ! ffmpeg -i Convert/$filename -c:v libx264 -preset medium -crf 17 Downloads/$name.$format
+if ! ffmpeg -i Convert/$filename -c:v libx264 -preset veryfast Downloads/$name.$format
     then
     echo "Error: Failed to convert $filename to $name.$format" >> audiovisual.txt
     fi
