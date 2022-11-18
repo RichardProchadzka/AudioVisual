@@ -41,6 +41,8 @@ sleep 10s
 sudo nano /etc/php/8.1/fpm/php.ini
 echo ""
 cp -r audiovisual /var/www/html/
+mkdir /var/www/html/audiovisual/Downloads
+mkdir /var/www/html/audiovisual/Convert
 chmod -R 777 /var/www/html
 echo ""
 echo ""
