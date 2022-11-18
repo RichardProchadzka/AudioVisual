@@ -43,7 +43,7 @@ echo ""
 cp -r audiovisual /var/www/html/
 mkdir /var/www/html/audiovisual/Downloads
 mkdir /var/www/html/audiovisual/Convert
-chmod -R 777 /var/www/html
+chmod -R 777 /var/www/html/audiovisual/
 echo ""
 echo ""
 systemctl restart nginx
