@@ -35,8 +35,8 @@ I tried to force not to cache the page but it seems that it is not working prope
 Persons that have access to this tool may see your Telegram Token!
 Granted root permissions to www-data user.
 
-# How to deploy
-1. Clone repository to your enviroment.
+# How to deploy - UBUNTU
+1. Clone repository to your enviroment. Choose branch by your architecture.
 2. ```cd AudioVisual```
 3. Run build script with ```sudo bash build.sh```
 4. Follow through steps.
