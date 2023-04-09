@@ -6,7 +6,8 @@ exit
 fi
 #install prerequisites
 apt update
-apt install rename curl jq youtube-dl nginx php7.4-fpm -y
+apt install rename curl jq youtube-dl nginx php7.4-fpm python3-pip-y
+pip install yt-dlp
 echo ""
 echo ""
 systemctl is-active --quiet php7.4-fpm && echo "php7.4-fpm is running"
@@ -19,7 +20,7 @@ echo "server {" >> /etc/nginx/sites-available/default
 echo "  listen 8081 default_server;" >> /etc/nginx/sites-available/default
 echo "  listen [::]:8081 default_server;" >> /etc/nginx/sites-available/default
 echo "  root /var/www/html/audiovisual;" >> /etc/nginx/sites-available/default
-echo "  index audiovisual.php index.html index.htm index.nginx-debian.html;" >> /etc/nginx/sites-available/default
+echo "  index audiovisual.php;" >> /etc/nginx/sites-available/default
 echo "  server_name _;" >> /etc/nginx/sites-available/default
 echo "  autoindex on;" >> /etc/nginx/sites-available/default
 echo "  location ~ \.php$ {" >> /etc/nginx/sites-available/default
