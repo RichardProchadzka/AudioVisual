@@ -33,7 +33,7 @@ Source: https://trac.ffmpeg.org
 Granted root permissions to www-data user.
 
 # How to deploy - UBUNTU
-1. Clone repository to your enviroment. Choose branch by your architecture.
+1. Clone repository to your enviroment. Choose branch by your architecture (different versions of php-fpm).
 2. ```cd AudioVisual```
 3. Run build script with ```sudo bash build.sh```
 4. Follow through steps.
