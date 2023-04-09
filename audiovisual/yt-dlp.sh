@@ -1,22 +1,20 @@
 #!/bin/bash
-#Youtube-dl link -> https://youtube-dl.org/
 video=$(jq -r '.[0.].video' config.json)
 audio=$(jq -r '.[0.].audio' config.json)
 telegram_token=$(jq -r '.[0.].telegram_token' config.json)
 telegram_chat=$(jq -r '.[0.].telegram_chat' config.json)
-links=$(sed -n '=' youtube-dl.txt | tail -n 1)
+links=$(sed -n '=' yt-dlp.txt | tail -n 1)
 i=1
 timeStamp=$(date '+%Y-%m-%d %H:%M:%S')
 echo $timeStamp >> audiovisual.txt
 
 videoOnly(){
     echo "Downloading video" >> audiovisual.txt
-    cat youtube-dl.txt | while read line
+    cat yt-dlp.txt | while read line
     do
-    link=$(sed $i'q;d' youtube-dl.txt)
+    link=$(sed $i'q;d' yt-dlp.txt)
     let "i=i+1"
-    format=$(youtube-dl $link --no-playlist -F | grep "video only" | awk '{print $1}' | tail -n 1)
-    if ! youtube-dl --no-playlist $link -o 'Downloads/%(title)s.%(ext)s' -f $format  >> audiovisual.txt;
+    if ! yt-dlp -f 'bestvideo[ext!=webm]' -o 'Downloads/%(title)s.%(ext)s' $link >> audiovisual.txt;
     then
     echo "Failed to download this link: $link. Please try again." >> audiovisual.txt
     fi
@@ -24,11 +22,11 @@ videoOnly(){
 }
 audioOnly(){
     echo "Downloading audio" >> audiovisual.txt
-    cat youtube-dl.txt | while read line 
+    cat yt-dlp.txt | while read line 
     do
-    link=$(sed $i'q;d' youtube-dl.txt)
+    link=$(sed $i'q;d' yt-dlp.txt)
     let "i=i+1"
-    if ! youtube-dl --no-playlist $link -o 'Downloads/%(title)s.%(ext)s' --extract-audio --audio-format mp3  >> audiovisual.txt;
+    if ! yt-dlp -x --audio-format mp3 -o 'Downloads/%(title)s.%(ext)s' $link >> audiovisual.txt;
     then
     echo "Failed to download this link: $link. Please try again." >> audiovisual.txt
     fi
@@ -36,11 +34,11 @@ audioOnly(){
 }
 audioVideo(){
     echo "Downloading Video & Audio" >> audiovisual.txt
-    cat youtube-dl.txt | while read line
+    cat yt-dlp.txt | while read line
     do
-    link=$(sed $i'q;d' youtube-dl.txt)
+    link=$(sed $i'q;d' yt-dlp.txt)
     let "i=i+1"
-    if ! youtube-dl --no-playlist $link -o 'Downloads/%(title)s.%(ext)s'  >> audiovisual.txt;
+    if ! yt-dlp -f 'bestvideo[ext!=webm]+bestaudio[ext!=webm]' -o 'Downloads/%(title)s.%(ext)s' --merge-output-format mkv $link >> audiovisual.txt;
     then
     echo "Failed to download this link: $link. Please try again." >> audiovisual.txt
     fi

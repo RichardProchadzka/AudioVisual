@@ -14,32 +14,32 @@
   <div class="center-screen">
     <div class="float-container">
       <div class="first-box">
-        <form action="/audiovisual.php">
+        <form action="audiovisual.php">
           <input type="text" id="ylink" name="ylink" placeholder="https://www.youtube.com/watch..." required>
           <input type="submit" value="Add" name="add" class="btn">
         </form>
         <br>
-        <iframe src="youtube-dl.txt" width=360 height=400></iframe>
+        <iframe src="yt-dlp.txt" width=360 height=400></iframe>
         <br>
         <a href="audiovisual.php?clear">
           <button class="btn" style="padding-left: 20px;padding-right: 20px;">Clear</button>
         </a>
         <div style="display:flex; float:right; margin-bottom: 4px; margin-right: 4px; margin-left: 0px;">
-          <form action="/audiovisual.php">
+          <form action="audiovisual.php">
             <input type="hidden" id="video" name="video" value="0">
-            <input type="checkbox" id="video" name="video" value="1" checked>
+            <input type="checkbox" id="video" name="video" value="1">
             <label for="video"> Video</label>
             <input type="hidden" id="audio" name="audio" value="0">
-            <input type="checkbox" id="audio" name="audio" value="1" checked>
+            <input type="checkbox" id="audio" name="audio" value="1">
             <label for="audio"> Audio</label>
             <input style="margin-left:10px;" type="submit" value="Download" name="job" class="btn">
           </form>
         </div>
         <br>
-        <iframe src="/config.json" width=360 height=100></iframe>
+        <iframe src="config.json" width="360" height="100" style="filter: blur(1px);"></iframe>
       </div>
       <div class="second-box">
-        <form action="/audiovisual.php" method="post" enctype="multipart/form-data">
+        <form action="audiovisual.php" method="post" enctype="multipart/form-data">
           <input type="file" name="file">
           <input type="submit" value="Convert" name="convert" class="btn">
         </form>
@@ -73,7 +73,7 @@
             <button class="btn">FLAC</button>
           </a>
         </div>
-        <iframe src="/audiovisual.txt" width=360 height=325 style="margin-top:6px;"></iframe>
+        <iframe src="audiovisual.txt" width=360 height=325 style="margin-top:6px;"></iframe>
         <br>
         <a href="audiovisual.php?stop">
           <button style="width: 44%; margin-top: 4px;" class="btn">Stop running jobs</button>
@@ -81,7 +81,7 @@
         <a href="Downloads/">
           <button style="width: 44%; margin-top: 4px;" class="btn">Downloads</button>
         </a>
-        <form action="/audiovisual.php">
+        <form action="audiovisual.php">
           <input style="width: 35%;" type="text" id="telegram" name="telegram" placeholder="Telegram Token..." required>
           <input style="width: 35%;" type="text" id="telegram_chat" name="telegram_chat" placeholder="Telegram Chat ID" required>
           <input type="submit" value="Save" class="btn">
@@ -89,9 +89,6 @@
       </div>
     </div>
   </div>
-  <a target="_blank" href="https://www.buymeacoffee.com/Prochadzka">
-    <button class=btn-coffee>Buy me a coffee!</button>
-  </a>
 </body>
 
 </html>
@@ -102,7 +99,7 @@ header('Expires: 0');
 function add()
 {
   $ylinks = $_GET['ylink'];
-  $myfile = fopen("youtube-dl.txt", "a+") or die("Unable to open file!");
+  $myfile = fopen("yt-dlp.txt", "a+") or die("Unable to open file!");
   fwrite($myfile, $ylinks . PHP_EOL);
   fclose($myfile);
   header('Location: /audiovisual.php');
@@ -121,7 +118,7 @@ function job()
     $data[0]['audio'] = "$audio";
     $newJsonString = json_encode($data);
     file_put_contents('config.json', $newJsonString);
-    echo exec('sudo bash youtube-dl.sh > /dev/null 2>&1 &');
+    echo exec('sudo bash yt-dlp.sh > /dev/null 2>&1 &');
     header('Location: /audiovisual.php');
   }
 }
@@ -270,7 +267,7 @@ if (isset($_POST['convert'])) {
 
 function stop()
 {
-  echo exec('sudo pkill -f youtube-dl > /dev/null 2>&1 &');
+  echo exec('sudo pkill -f yt-dlp > /dev/null 2>&1 &');
   sleep(1);
   echo exec('sudo pkill -f ffmpeg > /dev/null 2>&1 &');
   sleep(1);
@@ -305,7 +302,7 @@ if (isset($_GET['telegram'])) {
 
 function clear()
 {
-  echo exec('sudo true > youtube-dl.txt > /dev/null 2>&1 &');
+  echo exec('sudo true > yt-dlp.txt > /dev/null 2>&1 &');
   echo exec('sudo true > audiovisual.txt > /dev/null 2>&1 &');
   usleep(500000);
   header('Location: /audiovisual.php');
