@@ -11,8 +11,7 @@ If you find something that can improve this project feel free to help me improve
 
 ## Warning!
 - I granted root permissions to www-data user.
-- This should be deployed only in local network area or accessed via VPN!
-- Use only with well secured firewall or well secured router.
+- This should be deployed only in local network area or accessed via VPN or use only with well secured firewall or well secured router (internally).
 - I am not responsible for the future of your system. (Feel free to teach me what should be more secure way.)
 
 # How to use
